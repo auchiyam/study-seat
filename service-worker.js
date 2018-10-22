@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/StudySeatHost/precache-manifest.8f4596b27dd3765c4cedd6a8115fed6b.js"
+  "/StudySeatHost/precache-manifest.275a6850ee082536c135e224bd21eb55.js"
 );
 
 workbox.clientsClaim();

@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/StudySeatHost/static/js/runtime~main.a3fe1b32.js"
   },
   {
-    "revision": "4743515cc4cd675e256e",
-    "url": "/StudySeatHost/static/js/main.4743515c.chunk.js"
+    "revision": "37b40b153863bdc05826",
+    "url": "/StudySeatHost/static/js/main.37b40b15.chunk.js"
   },
   {
     "revision": "c2c164d2bd3ec92c1468",
     "url": "/StudySeatHost/static/js/1.c2c164d2.chunk.js"
   },
   {
-    "revision": "4743515cc4cd675e256e",
+    "revision": "37b40b153863bdc05826",
     "url": "/StudySeatHost/static/css/main.51f47dfc.chunk.css"
   },
   {
-    "revision": "813bbe69a016a1cc384d7ec7a3fc5f7a",
+    "revision": "f36a3842b2c069a8a7342ffe71e48671",
     "url": "/StudySeatHost/index.html"
   }
 ];
