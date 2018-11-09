@@ -1,6 +1,9 @@
-import DBHandler from './db_handler.js';
+import {get_status} from './db_handler.js';
 
 export function fetch_status(status) {
+    return get_status()
+
+    /* dummy data
     status.setState({
         tables: [
             [1, 2, 3],
@@ -8,4 +11,5 @@ export function fetch_status(status) {
             [1, 0, 3, 2]
         ]
     });
+    */
 }

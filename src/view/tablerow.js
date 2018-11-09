@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 
 class TableRows extends Component {
     constructor(props) {
@@ -11,27 +10,29 @@ class TableRows extends Component {
         };
 
         this.draw_tables = this.draw_tables.bind(this);
+        this.handle_resize = this.handle_resize.bind(this);
     }
 
     draw_tables(height) {
         var tab = [];
+        var marg = height * .2
         for (var i = 0; i < this.props.tables.length; i++) {
             var color = '';
-            switch (this.props.tables[i]) {
+            switch (this.props.tables[i]['status']) {
                 //available
-                case(0):
+                case("0"):
                     color = '#bbbbbb';
                     break;
                 //unavailable
-                case(1):
+                case("1"):
                     color = '#ff2445';
                     break;
                 //reserved
-                case(2):
+                case("2"):
                     color = '#8f26ff';
                     break;
                 //semi-taken
-                case(3):
+                case("3"):
                     color = '#ffb129';
                     break;
                 default:
@@ -39,7 +40,7 @@ class TableRows extends Component {
                     break;
             }
             var square = (
-                <div style={ { width:height, height:height, marginLeft:'20px', marginRight:'20px', marginTop:'20px', marginBottom:'20px', 'background-color':color } }></div>
+                <div style={ { width:height, height:height, marginLeft:marg, marginRight:marg, marginTop:marg, marginBottom:marg, 'backgroundColor':color } }></div>
             );
 
             tab.push(square);
@@ -48,12 +49,18 @@ class TableRows extends Component {
         return tab;
     }
 
-    componentDidMount() {
+    handle_resize() {
         var height = this.divElement.clientHeight
         this.setState({
             height: height,
             mounted: true
         });
+    }
+
+    componentDidMount() {
+        this.handle_resize()
+
+        window.addEventListener('resize', this.handle_resize)
     }
 
     render() {
@@ -65,14 +72,14 @@ class TableRows extends Component {
             color = '#ffffff'
         }
 
-        var height = this.state['height'] - 40;
+        var height = this.state['height'] * .6;
         var t;
         if (this.state['mounted']) {
-            var t = this.draw_tables(height);
+            t = this.draw_tables(height);
         }
 
         return (
-            <div class="d-flex h-25 justify-content-center align-item-center" ref={ (divElement)=> this.divElement = divElement } style={ { 'background-color': color } } >
+            <div class="d-flex h-25 justify-content-center align-item-center" ref={ (divElement)=> this.divElement = divElement } style={ { 'backgroundColor': color } } >
                 {t}
             </div>
         );
