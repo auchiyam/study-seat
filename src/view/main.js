@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetch_status } from '../controller/main.js';
+import { get_status } from '../controller/db_handler.js';
 import TableRows from './tablerow.js';
 import firebase from '../firestore'
 
@@ -31,7 +31,7 @@ class MainPage extends Component {
 
     initialize_status() {
         var this_main = this
-        fetch_status(this).then(function (tables) {
+        get_status().then(function (tables) {
             this_main.setState({
                 tables: tables
             })
@@ -97,6 +97,10 @@ class MainPage extends Component {
         this.handle_resize()
         this.initialize_status()
         this.unsubscribe = this.db_ref.onSnapshot(this.update_status)
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe()
     }
 
     render() {

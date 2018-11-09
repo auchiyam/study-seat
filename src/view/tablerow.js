@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Square from './square'
 
 class TableRows extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class TableRows extends Component {
         var tab = [];
         var marg = height * .2
         var btn_color;
-        if (button_color == 0) {
+        if (button_color === 0) {
             btn_color = 'btn-light'
         } else {
             btn_color = 'btn-dark'
@@ -26,7 +27,9 @@ class TableRows extends Component {
 
         for (var i = 0; i < this.props.tables.length; i++) {
             var color = '';
-            switch (this.props.tables[i]['status']) {
+            var status = this.props.tables[i]['status']
+            var id = this.props.tables[i]['id']
+            switch (status) {
                 //available
                 case("0"):
                     color = '#bbbbbb';
@@ -47,12 +50,7 @@ class TableRows extends Component {
                     color = '#000000';
                     break;
             }
-            var square = (
-                <div class="d-flex align-item-center flex-column" >
-                    <div style={ { width:height, height:height, marginLeft:marg, marginRight:marg, marginTop:marg, 'backgroundColor':color } }></div>
-                    <button class={`btn ${btn_color}`} style={ { marginLeft: marg, marginRight: marg } } >reserve</button>
-                </div>
-            );
+            var square = <Square height={height} marg={marg} color={color} id={id} btn_color={btn_color} />
 
             tab.push(square);
         }
