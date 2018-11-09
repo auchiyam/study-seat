@@ -15,9 +15,13 @@ exports.handleReservations = functions.firestore
         //check if anyone is trying to reserve that seat right now
         return db.collection("pending_reservations").doc(chair_id).get()
         .then(function(ss) {
-            var pending = ss.data()['r_id']
+            if (ss.exists) {
+                var pending = ss.data()['r_id']
 
-            return (pending === res_id) || (pending === "")
+                return (pending === res_id) || (pending === "")
+            } else {
+                return true
+            }
         })
         .then(function(available) {
             //if no one was reserving it, reserve it

@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { displayed: 1 };
+    this.state = { displayed: 0 };
 
     this.change_state = this.change_state.bind(this);
   }
