@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/study-seat/precache-manifest.0a12e4f70f7a9b0024808eab60cf5dd4.js"
+  "/StudySeatHost/precache-manifest.f7cefa79ab5befe61beab7d80d9811a5.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/study-seat/index.html", {
+workbox.routing.registerNavigationRoute("/StudySeatHost/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
